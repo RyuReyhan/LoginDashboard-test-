@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f8ff;
+        margin: 0;
+        padding: 0;
+    }
+    .header {
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        padding: 1em;
+    }
+    .container {
+        padding: 20px;
+    }
+    .profile {
+        margin: 20px 0;
+        background-color: #e6e6e6;
+        padding: 20px;
+        border-radius: 8px;
+    }
+    .stats {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #d3e0ea;
+        border-radius: 8px;
+    }
+    .logout-btn {
+        background-color: #ff6347;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 1em;
+    }
+    .logout-btn:hover {
+        opacity: 0.8;
+    }
+</style>
+<script>
+// Fetch the username (for demo purposes, we'll use "Admin")
+let username = "Admin"; // This could be fetched dynamically in a real setup
+
+// Function to show a welcome message and profile details
+function displayDashboard() {
+    document.getElementById("welcome").innerText = `Welcome, ${username}!`;
+    document.getElementById("profile-info").innerText = "Username: " + username;
+    logActivity("User accessed the dashboard");
+}
+
+// Log activity for the dashboard
+function logActivity(action) {
+    const timestamp = new Date().toLocaleString();
+    console.log(`[${timestamp}] ${action}`);
+}
+
+// Logout function to redirect to login
+function logout() {
+    logActivity("User logged out");
+    window.location.href = "login.html"; // Redirect to the login page
+}
+</script>
+</head>
+<body onload="displayDashboard()">
+    <div class="header">
+        <h1>Dashboard</h1>
+    </div>
+
+    <div class="container">
+        <div class="profile">
+            <h2 id="welcome"></h2>
+            <p id="profile-info"></p>
+        </div>
+
+        <div class="stats">
+            <h3>Profile Stats</h3>
+            <p>Last login: October 25, 2024</p> <!-- Placeholder for last login -->
+            <p>Login count: 10</p> <!-- Placeholder for login count -->
+            <p>Activities: View, Edit, Upload</p> <!-- Placeholder for recent activities -->
+        </div>
+
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+</body>
+</html>
